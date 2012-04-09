@@ -1,8 +1,12 @@
 class Calculator
-	attr_reader :resultado
+	
 	def add (cadena)
-		if cadena == ""
-			@resultado = 0
+		if cadena == "" or cadena == nil
+			return 0
 		end
+
+		array = cadena.split(",").map {|num| num.to_i}
+
+		array.inject(0) {|suma, num| suma += num}
 	end
 end
