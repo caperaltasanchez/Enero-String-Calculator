@@ -21,11 +21,14 @@ describe Calculator do
 		c = Calculator.new()
 		c.add("1,2,3,4").should eq(10)
 	end
-	
 
 	it "si la cadena recibe numeros separados por coma o \n2 debe retornar la suma" do
 		c = Calculator.new()
 		c.add("1\n2,3").should eq(6)
 	end
 
+	it "si la cadena recibe el delimitador, debe retornar la suma de los numeros que el delimitador separe" do
+		c = Calculator.new()
+		c.add("//;\n1;2;3").should eq(6)
+	end
 end

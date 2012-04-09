@@ -5,9 +5,12 @@ class Calculator
 			return 0
 		end
 
-		cadena = cadena.gsub("\n",",")
+		array = cadena.gsub("\n",",").split(",").map {|num| num.to_i}
 
-		array = cadena.split(",").map {|num| num.to_i}
+		if cadena.slice(0,2) == "//"
+			delimitador = cadena.slice!(%r{^//(.+)\n}).strip.gsub("//", "")
+			array = cadena.gsub("\n","").gsub("//", "").split(delimitador).map {|num| num.to_i}
+		end
 
 		array.inject(0) {|suma, num| suma += num}
 	end
