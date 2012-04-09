@@ -1,3 +1,5 @@
+require './calculator.rb'
+
 describe Calculator do 
 
 	it "si la cadena es vacia debe retornar 0" do
