@@ -5,6 +5,8 @@ class Calculator
 			return 0
 		end
 
+		cadena = cadena.gsub("\n",",")
+
 		array = cadena.split(",").map {|num| num.to_i}
 
 		array.inject(0) {|suma, num| suma += num}
