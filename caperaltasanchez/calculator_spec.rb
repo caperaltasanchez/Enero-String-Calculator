@@ -31,4 +31,9 @@ describe Calculator do
 		c = Calculator.new()
 		c.add("//;\n1;2;3").should eq(6)
 	end
+
+	it "si la cadena recibe negativos arrojara una excepcion" do
+		c = Calculator.new()
+		expect{ c.add("//;\n-1;2;3") }.to raise_error "negatives not allowed: [-1]"
+	end
 end

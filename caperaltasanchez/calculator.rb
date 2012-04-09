@@ -12,6 +12,9 @@ class Calculator
 			array = cadena.gsub("\n","").gsub("//", "").split(delimitador).map {|num| num.to_i}
 		end
 
+		negatives = array.select {|num| num < 0}
+    	raise "negatives not allowed: #{negatives.inspect}" unless negatives.empty?
+
 		array.inject(0) {|suma, num| suma += num}
 	end
 end
